@@ -28,6 +28,21 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 }
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+
+
+                groupId = "dev.tomco"
+                artifactId = "simplegraph"
+                version = "1.0.0"
+                artifact(tasks.getByName("bundleReleaseAar"))
+
+            }
+        }
+    }
+}
 
 dependencies {
 
